@@ -73,13 +73,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
        templateUrl: 'app/components/home/home.html'
    })
 
-
     .state('home.challenges', {
         url: '/challenges',
         views: {
             'home-challenges': {
                 templateUrl: 'app/components/challenge/challenges.html',
-                controller: challengesController,
+                controller: 'challengesController',
                 resolve: {
                     'challenges': ['$q', 'parseService', function ($q, parseService) {
                         var deferred = $q.defer();
