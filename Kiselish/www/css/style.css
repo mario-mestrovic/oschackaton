@@ -85,3 +85,7 @@ body {
     background-image: url('../img/icona_novosti.png');
     background-size: contain;
 }
+
+.article-photo {
+    width: 100%;
+}

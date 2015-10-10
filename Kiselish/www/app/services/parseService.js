@@ -121,4 +121,24 @@
         return deferred.promise;
     };
 
+    this.getArticle = function (articleId) {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getNews' });
+        }
+
+        var deferred = $q.defer();
+
+        var challengesQuery = new Parse.Query(ObjNews);
+        challengesQuery.equalTo("objectId", articleId);
+        challengesQuery.first()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
 });
