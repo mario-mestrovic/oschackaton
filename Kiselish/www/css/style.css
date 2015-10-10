@@ -6,9 +6,34 @@
     font-weight: normal;
     font-style: normal; 
 }
+@font-face {
+	font-family: "PFSquareSansPro";
+	src: url("fonts/PFSquareSansProExtraBlack.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal; 
+}
 
-body {
+body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: PFSquareSansPro;
+}
+.header-item{
+    font-weight:bold;
+}
+
+
+.panel-background {
+	/*background: -moz-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
+	background: -o-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
+	background: linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
+	background: -webkit-linear-gradient(#004E94, #004E94 20%, #0091DB);
+	background: -webkit-gradient(linear, left top, left bottom, from(0%, #004E94), to(100%, #0091DB));*/
+    background: linear-gradient(152deg, white 0%,white 55%,white 55%,#f6f6f6 45%,#f6f6f6 100%); /* W3C */
+	height: 100%;
+	margin: 0;
+	width: 100%;
+}
+.pane {
+    background: linear-gradient(152deg, white 0%,white 55%,white 55%,#f6f6f6 45%,#f6f6f6 100%); /* W3C */
 }
 
 .produce-title, .produce-price {
@@ -53,11 +78,15 @@ body {
         color: #362f2d;
     }
 
+.padding-top-10{
+    padding-top:10px;
+}
+
 
 .tabs .tab-item .icon.challenges {
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 100%;
+    height: 90%;
     background-image: url('../img/ikona_izazov.png');
     background-size: contain;
 }
@@ -65,7 +94,12 @@ body {
 .tabs .tab-item .icon.cart {
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 100%;
+    height: 90%;
+    background-image: url('../img/ikona_kosarica.png');
+    background-size: contain;
+}
+.cart-btn {
+    background-repeat: no-repeat;
     background-image: url('../img/ikona_kosarica.png');
     background-size: contain;
 }
@@ -73,7 +107,7 @@ body {
 .tabs .tab-item .icon.recipes {
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 100%;
+    height: 90%;
     background-image: url('../img/ikona_recepti.png');
     background-size: contain;
 }
@@ -81,7 +115,7 @@ body {
 .tabs .tab-item .icon.news {
     background-repeat: no-repeat;
     background-position: 50%;
-    height: 100%;
+    height: 90%;
     background-image: url('../img/icona_novosti.png');
     background-size: contain;
 }
@@ -112,4 +146,8 @@ body {
     text-align: center;
     margin-top: 40px;
     font-family: PFSquareSansPro;
+}
+
+.text-center {
+    text-align:center;
 }

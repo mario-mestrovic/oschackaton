@@ -163,6 +163,9 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         resolve: {
             recipe: function (parseServicem, $stateParams) {
                 return parseService.getRecipe($stateParams.recipeId);
+            },
+            ingredients: function (parseServicem, $stateParams) {
+                return parseService.getRecipeIngredients($stateParams.recipeId);
             }
         },
         views: {
@@ -221,7 +224,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home/challenges');
+    $urlRouterProvider.otherwise('/home/recipes');
 
 });
 

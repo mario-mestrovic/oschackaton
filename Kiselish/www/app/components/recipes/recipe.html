@@ -1,11 +1,11 @@
 ﻿<ion-view view-title="Recept">
-    <ion-content padding="true" class="has-header">
-        <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
-            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-        </div>
-        <h2>Grah s kobasicom</h2>
-        <div>
-            <p>opis recepta</p>
-        </div>
+    <ion-content padding="true" class="has-header text-center">
+        <span class="recipe-title">{{Recipe.get('name')}}</span>
+        
+        <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb"/>
+        <span>PRIPREMA</span>
+        <span>{{Recipe.get('info')}}</span>
+        <span class="recipe-ingredient" ng-repeat="ingredient in Ingredient">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}}</span>
+        <button class="btn-add-recipe">DODAJ U KOŠARICU</button>
     </ion-content>
 </ion-view>

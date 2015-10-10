@@ -1,5 +1,5 @@
 ﻿<ion-view view-title="Kupovina">
-    <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header ">
         <ion-list ng-repeat="item in produces">
             <ion-item class="item-thumbnail-left">
                 <img src={{item.get("ingredient").get("photo").url()}}>
@@ -14,6 +14,7 @@
                     </label>
                 </form>-->
             </ion-item>
+            <div class="padding-top-10"/>
         </ion-list>
     </ion-content>
 </ion-view>
