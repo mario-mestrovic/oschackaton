@@ -97,7 +97,8 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         }, 
         views: {
             'home-challenges': {
-                templateUrl: 'app/components/challenge/challenge.html'
+                templateUrl: 'app/components/challenge/challenge.html',
+                controller: 'challengeCtrl'
             }
         }
     })
