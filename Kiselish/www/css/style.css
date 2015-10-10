@@ -23,7 +23,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     max-height:55px;
 }
 .height-photo{
-    max-height:300px;
+    max-height:200px;
 }
 .info-text{
     font-size:22px;
