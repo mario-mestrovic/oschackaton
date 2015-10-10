@@ -17,3 +17,33 @@
     color: white;
     border: none;
 }
+
+
+.tabs .tab-item .icon.challenges {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/ikona_izazov.png');
+  background-size:contain;
+}
+.tabs .tab-item .icon.cart {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/ikona_kosarica.png');
+  background-size:contain;
+}
+.tabs .tab-item .icon.recipes {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/ikona_recepti.png');
+  background-size:contain;
+}
+.tabs .tab-item .icon.news {
+  background-repeat: no-repeat;
+  background-position: 50%;
+  height: 100%;
+  background-image: url('../img/icona_novosti.png');
+  background-size:contain;
+}
