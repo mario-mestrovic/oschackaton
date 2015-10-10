@@ -86,6 +86,26 @@
         return deferred.promise;
     };
 
+    this.getRecipes = function () {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getRecipes' });
+        }
+
+        var deferred = $q.defer();
+
+        var recipesQuery = new Parse.Query(ObjRecipe);
+        
+        recipesQuery.find()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
     this.getPreviosOrders = function () {
 
         function onSuccess(response) {
@@ -135,6 +155,46 @@
         var challengesQuery = new Parse.Query(ObjNews);
         challengesQuery.equalTo("objectId", articleId);
         challengesQuery.first()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
+    this.getChallenge = function (challengeId) {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getChallenge' });
+        }
+
+        var deferred = $q.defer();
+
+        var challengeQuery = new Parse.Query(ObjChallenge);
+        challengeQuery.equalTo("objectId", challengeId);
+        challengeQuery.first()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
+    this.getRecipe = function (recipeId) {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getRecipe' });
+        }
+
+        var deferred = $q.defer();
+
+        var recipeQuery = new Parse.Query(ObjRecipe);
+        recipeQuery.equalTo("objectId", recipeId);
+        recipeQuery.first()
             .then(onSuccess, onError)
             .then(deferred.resolve, deferred.reject);
 

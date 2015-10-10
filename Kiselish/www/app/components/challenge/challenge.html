@@ -1,15 +1,7 @@
 ﻿<ion-view view-title="Izazov">
     <ion-content padding="true" class="has-header">
-        <div class="button-bar">
-            <a href="#/challenge/:challengeId" class="button  button-icon button-block button-large icon ion-chevron-left button-full"></a>
-            <a href="#/challenge/:challengeId" class="button  button-icon button-block  icon ion-chevron-right"></a>
-        </div>
-        <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
-            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
-        </div>
-        <h2>Izazov naslov</h2>
-        <div>
-            <p>Opis izazova</p>
-        </div>
+        <img class="article-photo" src={{Challenge.get("photo").url()}}>
+        <h2>{{Challenge.get("name")}}</h2>
+        <p>{{Challenge.get("info")}}</p>
     </ion-content>
 </ion-view>

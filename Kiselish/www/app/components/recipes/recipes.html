@@ -1,9 +1,7 @@
 ﻿<ion-view view-title="Recepti">
     <ion-content padding="true" class="has-header">
         <ion-list>
-            <ion-toggle toggle-class="toggle-positive" name="Grah sa kobasicom">Grah sa kobasicom</ion-toggle>
-            <ion-toggle toggle-class="">Rizoto s gljivama</ion-toggle>
-            <ion-toggle toggle-class="toggle-positive">Piletina s pekarskim krumpirom</ion-toggle>
+            <ion-toggle ng-repeat="recipe in Recipes">{{recipe.get('name')}}</ion-toggle>
         </ion-list>
         <button class="button button-stable button-block  icon ion-ios7-cart">Rezerviraj sastojke</button>
     </ion-content>

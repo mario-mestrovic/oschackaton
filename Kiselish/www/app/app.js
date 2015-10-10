@@ -90,9 +90,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     .state('home.challenge', {
         url: '/challenges/:challengeId',
+        resolve: {
+            challenge: function (parseService, $stateParams) {
+                return parseService.getChallenge($stateParams.challengeId);
+            }
+        }, 
         views: {
             'home-challenges': {
-                templateUrl: 'app/components/challenge/challenge.html'
+                templateUrl: 'app/components/challenge/challenge.html',
+                controller: 'challengeCtrl'
             }
         }
     })
@@ -139,18 +145,30 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     .state('home.recipes', {
         url: '/recipes',
+        resolve: {
+            recipes: function (parseService) {
+                return parseService.getRecipes();
+            }
+        }, 
         views: {
             'home-recipes': {
-                templateUrl: 'app/components/recipes/recipes.html'
+                templateUrl: 'app/components/recipes/recipes.html',
+                controller:'recipesCtrl'
             }
         }
     })
 
     .state('home.recipe', {
         url: '/recipes/:recipeId',
+        resolve: {
+            recipe: function (parseServicem, $stateParams) {
+                return parseService.getRecipe($stateParams.recipeId);
+            }
+        },
         views: {
             'home-recipes': {
-                templateUrl: 'app/components/recipes/recipe.html'
+                templateUrl: 'app/components/recipes/recipe.html',
+                controller: 'recipeCtrl'
             }
         }
     })
