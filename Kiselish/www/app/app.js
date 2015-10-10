@@ -161,8 +161,11 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.recipe', {
         url: '/recipes/:recipeId',
         resolve: {
-            recipe: function (parseServicem, $stateParams) {
+            recipe: function (parseService, $stateParams) {
                 return parseService.getRecipe($stateParams.recipeId);
+            },
+            ingredients: function (parseService, $stateParams) {
+                return parseService.getRecipeIngredients($stateParams.recipeId);
             }
         },
         views: {
@@ -198,6 +201,21 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
             'home-news': {
                 templateUrl: 'app/components/news/article.html',
                 controller: 'articleCtrl'
+            }
+        }
+    })
+
+    .state('home.articleWinner', {
+        url: '/articleWinner/:articleId',
+        resolve: {
+            article: function (parseService, $stateParams) {
+                return parseService.getArticle($stateParams.articleId);
+            }
+        },
+        views: {
+            'home-news': {
+                templateUrl: 'app/components/news/articleWinner.html',
+                controller: 'articleWinnerCtrl'
             }
         }
     })
