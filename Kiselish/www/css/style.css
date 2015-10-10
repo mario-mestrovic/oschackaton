@@ -1,5 +1,16 @@
 /* Empty. Add your own CSS if you like */
 
+@font-face {
+	font-family: "PFSquareSansPro";
+	src: url("fonts/PFSquareSansPro.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal; 
+}
+
+body {
+	font-family: PFSquareSansPro;
+}
+
 .produce-title, .produce-price {
     color: #bac6b8;
     font-size: 20px;
