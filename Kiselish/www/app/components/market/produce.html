@@ -1,16 +1,18 @@
 ﻿<ion-view view-title="Kupovina">
     <ion-content padding="true" class="has-header">
-        <ion-list>
+        <ion-list ng-repeat="item in produces">
             <ion-item class="item-thumbnail-left">
-                <img src="/img/avatar-img.png">
-                <h2>Title</h2>
-                <p>Item</p>
-                <form>
+                <img src={{item.get("ingredient").get("photo").url()}}>
+                <h2 class="produce-title">{{item.get("ingredient").get("name")}}</h2>
+                <h2 class="produce-price">{{item.get("price")}} kn</h2>
+                <button class="produce-buy">KUPI</button>
+                <h2 class="produce-quantity">1 {{item.get("quantityType")}}</h2>
+                <!--<form>
                     <label class="item item-input">
-                        <span class="input-label">Input</span>
+                        <span class="input-label">Unesi kolicinu:</span>
                         <input type="text" placeholder="">
                     </label>
-                </form>
+                </form>-->
             </ion-item>
         </ion-list>
     </ion-content>

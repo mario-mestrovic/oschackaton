@@ -1,1 +1,19 @@
 /* Empty. Add your own CSS if you like */
+
+.produce-title, .produce-price {
+    color: #bac6b8;
+    font-size: 20px;
+}
+
+.produce-quantity {
+    color: #d5d5d5;
+    font-size: 20px;
+}
+
+.produce-buy {
+    float: right;
+    padding: 5px 30px;
+    background-color: #362f2d;
+    color: white;
+    border: none;
+}

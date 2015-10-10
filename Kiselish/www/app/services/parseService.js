@@ -10,6 +10,7 @@
     var ObjEvent = Parse.Object.extend('event');
     var ObjOrderitem = Parse.Object.extend('orderitem');
     var ObjRecipe = Parse.Object.extend('recipe');
+    var ObjProduce = Parse.Object.extend('ingredientprice');
     var ObjRecipeingredient = Parse.Object.extend('recipeingredient');
 
 
@@ -76,7 +77,11 @@
 
         var deferred = $q.defer();
 
-        deferred.resolve([]);
+        var challengesQuery = new Parse.Query(ObjProduce);
+        challengesQuery.include("ingredient");
+        challengesQuery.find()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
 
         return deferred.promise;
     };
