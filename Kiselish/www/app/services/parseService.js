@@ -2,15 +2,15 @@
 
 .service('parseService', function ($q) {
 
-    var challengeObj = Parse.Object.extend('challenge');
-    var news = Parse.Object.extend('news');
-    var orders = Parse.Object.extend('order');
-    var challengeusers = Parse.Object.extend('challengeusers');
-    var users = Parse.Object.extend('User');
-    var events = Parse.Object.extend('event');
-    var orderitems = Parse.Object.extend('orderitem');
-    var recipes = Parse.Object.extend('recipe');
-    var recipeingredients = Parse.Object.extend('recipeingredient');
+    var ObjChallenge = Parse.Object.extend('challenge');
+    var ObjNews = Parse.Object.extend('news');
+    var ObjOrder = Parse.Object.extend('order');
+    var ObjChallengeusers = Parse.Object.extend('challengeusers');
+    var ObjUser = Parse.Object.extend('User');
+    var ObjEvent = Parse.Object.extend('event');
+    var ObjOrderitem = Parse.Object.extend('orderitem');
+    var ObjRecipe = Parse.Object.extend('recipe');
+    var ObjRecipeingredient = Parse.Object.extend('recipeingredient');
 
 
     function logError(error, options) {
@@ -57,7 +57,7 @@
 
         var deferred = $q.defer();
 
-        var challengesQuery = new Parse.Query(challengeObj);
+        var challengesQuery = new Parse.Query(ObjChallenge);
         challengesQuery.equalTo("isActive", true);
         challengesQuery.find()
             .then(onSuccess, onError)
