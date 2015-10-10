@@ -205,6 +205,21 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         }
     })
 
+    .state('home.articleWinner', {
+        url: '/articleWinner/:articleId',
+        resolve: {
+            article: function (parseService, $stateParams) {
+                return parseService.getArticle($stateParams.articleId);
+            }
+        },
+        views: {
+            'home-news': {
+                templateUrl: 'app/components/news/articleWinner.html',
+                controller: 'articleWinnerCtrl'
+            }
+        }
+    })
+
 
 ;
 

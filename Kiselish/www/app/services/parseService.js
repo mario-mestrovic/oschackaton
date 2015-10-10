@@ -156,6 +156,7 @@
         var deferred = $q.defer();
 
         var challengesQuery = new Parse.Query(ObjNews);
+        challengesQuery.include("winner");
         challengesQuery.find()
             .then(onSuccess, onError)
             .then(deferred.resolve, deferred.reject);
