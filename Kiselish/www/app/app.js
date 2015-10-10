@@ -170,10 +170,16 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     })
 
     .state('home.article', {
-        url: '/news/:articleId',
+        url: '/article/:articleId',
+        resolve: {
+            article: function (parseService, $stateParams) {
+                return parseService.getArticle($stateParams.articleId);
+            }
+        },
         views: {
             'home-news': {
-                templateUrl: 'app/components/news/article.html'
+                templateUrl: 'app/components/news/article.html',
+                controller: 'articleCtrl'
             }
         }
     })

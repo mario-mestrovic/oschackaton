@@ -18,6 +18,18 @@
     border: none;
 }
 
+.teglanje-header-background
+{
+    background-color: #362f2d;
+}
+
+.bar.bar-teglanje {
+    border-color: #362f2d;
+    background-color: #362f2d;
+    background-image: linear-gradient(0deg, #362f2d, #362f2d 50%, transparent 50%);
+    color: #fff;
+}
+
 
 .tabs-teglanje > .tabs, .tabs.tabs-teglanje {
     border-color: #362f2d;
@@ -61,4 +73,8 @@
     height: 100%;
     background-image: url('../img/icona_novosti.png');
     background-size: contain;
+}
+
+.article-photo {
+    width: 100%;
 }
