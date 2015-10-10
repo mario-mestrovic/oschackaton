@@ -141,4 +141,24 @@
         return deferred.promise;
     };
 
+    this.getChallenges = function (challengeId) {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getNews' });
+        }
+
+        var deferred = $q.defer();
+
+        var challengeQuery = new Parse.Query(ObjChallenge);
+        challengeQuery.equalTo("objectId", challengeId);
+        challengeQuery.first()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
 });
