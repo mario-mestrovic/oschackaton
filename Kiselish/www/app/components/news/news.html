@@ -1,16 +1,10 @@
 ﻿<ion-view view-title="Novosti">
     <ion-content padding="true" class="has-header">
-        <ion-list>
+        <ion-list ng-repeat="item in News">
             <ion-item class="item-thumbnail-left">
-                <img src="/img/avatar-img.png">
-                <h2>Title</h2>
-                <p>Item</p>
-                <form>
-                    <label class="item item-input">
-                        <span class="input-label">Input</span>
-                        <input type="text" placeholder="">
-                    </label>
-                </form>
+                <img src={{item.get("photo").url()}}>
+                <h2>{{item.get("title")}}</h2>
+                <p>{{item.get("content")}}</p>
             </ion-item>
         </ion-list>
     </ion-content>

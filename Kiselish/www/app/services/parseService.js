@@ -102,4 +102,23 @@
         return deferred.promise;
     }
 
+    this.getNews = function () {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getNews' });
+        }
+
+        var deferred = $q.defer();
+
+        var challengesQuery = new Parse.Query(ObjNews);
+        challengesQuery.find()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
 });

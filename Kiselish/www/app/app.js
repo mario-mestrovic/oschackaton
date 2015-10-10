@@ -156,9 +156,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     })
     .state('home.news', {
         url: '/news',
+        resolve: {
+            news: function (parseService) {
+                return parseService.getNews();
+            }
+        },
         views: {
             'home-news': {
-                templateUrl: 'app/components/news/news.html'
+                templateUrl: 'app/components/news/news.html',
+                controller: 'newsCtrl'
             }
         }
     })
