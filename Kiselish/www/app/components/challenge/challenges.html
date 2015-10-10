@@ -1,13 +1,23 @@
 ﻿<ion-view view-title="Izazovi">
-    <ion-content scrolling="false" padding="true" class="has-header">
+    <ion-content scroll="false" class="hasHeader padding">
         <ion-slide-box>
             <ion-slide ng-repeat="item in Challenges" ui-sref="home.challenge({challengeId:item.id})">
                 <div>
-                    <h2>{{item.get("name")}}</h2>
-                    <img class="full-image" ng-src="{{item.get('photo').url()}}" />
+                    <div class="text-center">
+
+                        <div class="padding"></div>
+                        <div class="padding"></div>
+
+                        <img class="height-header-photo" ng-src="{{item.get('headerPhoto').url()}}" />
+
+                        <div class="padding"></div>
+                        <div class="padding"></div>
+
+
+                        <img class="height-photo" ng-src="{{item.get('photo').url()}}" />
+                    </div>
                 </div>
             </ion-slide>
         </ion-slide-box>
     </ion-content>
-
 </ion-view>

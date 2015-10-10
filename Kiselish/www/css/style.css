@@ -19,8 +19,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .header-item{
     font-weight:bold;
 }
+.height-header-photo{
+    max-height:55px;
+}
+.height-photo{
+    max-height:300px;
+}
+.info-text{
+    font-size:22px;
+}
 
-
+.slider{
+    height:100% !important;
+}
 .panel-background {
 	/*background: -moz-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
 	background: -o-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
