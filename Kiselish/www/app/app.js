@@ -90,6 +90,11 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     .state('home.challenge', {
         url: '/challenges/:challengeId',
+        resolve: {
+            challenge: function (parseService, $stateParams) {
+                return parseService.getChallenge($stateParams.challengeId);
+            }
+        }, 
         views: {
             'home-challenges': {
                 templateUrl: 'app/components/challenge/challenge.html'
