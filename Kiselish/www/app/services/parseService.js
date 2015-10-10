@@ -119,7 +119,7 @@
         var recipeIngredientsQuery = new Parse.Query(ObjRecipeingredient);
         var recipe = new ObjRecipe();
         recipe.id = recipeId;
-        challengesQuery.equalTo("recipe", recipe);
+        recipeIngredientsQuery.equalTo("recipe", recipe);
         recipeIngredientsQuery.include("ingredient");
         recipeIngredientsQuery.find()
             .then(onSuccess, onError)
