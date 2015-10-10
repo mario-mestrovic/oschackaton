@@ -1,4 +1,4 @@
-﻿angular.module('teglanje').controller('challengesController', ['challenges', '$scope', function (challenges, $scope) {
+﻿angular.module('teglanje').controller('challengesController', ['$scope', 'challenges', function ($scope, challenges) {
     $scope.Challenges = challenges;
 }]);
 
