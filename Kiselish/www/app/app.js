@@ -163,6 +163,9 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         resolve: {
             recipe: function (parseServicem, $stateParams) {
                 return parseService.getRecipe($stateParams.recipeId);
+            },
+            ingredients: function (parseServicem, $stateParams) {
+                return parseService.getRecipeIngredients($stateParams.recipeId);
             }
         },
         views: {

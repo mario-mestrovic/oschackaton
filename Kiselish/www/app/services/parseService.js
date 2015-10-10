@@ -106,6 +106,28 @@
         return deferred.promise;
     };
 
+    this.getRecipeIngredients = function (recipeId) {
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getRecipeIngredients' });
+        }
+
+        var deferred = $q.defer();
+
+        var recipeIngredientsQuery = new Parse.Query(ObjRecipeingredient);
+        var recipe = new ObjRecipe();
+        recipe.id = recipeId;
+        challengesQuery.equalTo("recipe", recipe);
+        recipeIngredientsQuery.include("ingredient");
+        recipeIngredientsQuery.find()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
     this.getPreviosOrders = function () {
 
         function onSuccess(response) {
