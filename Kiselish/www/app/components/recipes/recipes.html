@@ -1,7 +1,7 @@
 ﻿<ion-view view-title="Recepti">
     <ion-content padding="true" class="has-header">
-        <ion-list>
-            <ion-toggle ng-repeat="recipe in Recipes">{{recipe.get('name')}}</ion-toggle>
+        <ion-list ng-repeat="recipe in Recipes">
+            <ion-toggle>{{recipe.get('name')}}</ion-toggle>
         </ion-list>
         <button class="button button-stable button-block  icon ion-ios7-cart">Rezerviraj sastojke</button>
     </ion-content>

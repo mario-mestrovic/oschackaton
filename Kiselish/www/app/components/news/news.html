@@ -2,7 +2,7 @@
     <ion-content padding="true" class="has-header">
         <ion-list ng-repeat="item in News">
             <ion-item class="item-thumbnail-left"
-                      ui-sref="home.article({articleId: item.id})">
+                      ng-click="click(item)">
                 <img src={{item.get("photo").url()}}>
                 <h2>{{item.get("title")}}</h2>
                 <p>{{item.get("content")}}</p>

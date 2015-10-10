@@ -89,3 +89,27 @@ body {
 .article-photo {
     width: 100%;
 }
+
+.article-winner-photo-container{
+    width: 100%;
+    text-align: center;
+}
+
+.article-winner-photo {
+    width: 80%;
+    margin: 40px auto 10px auto;
+    text-align: center;
+}
+
+.article-winner-badge {
+    margin: 20px auto 10px auto;
+    text-align: center;
+    width: 50px;
+}
+
+.article-winner-name {
+    color: #bac6b8;
+    text-align: center;
+    margin-top: 40px;
+    font-family: PFSquareSansPro;
+}
