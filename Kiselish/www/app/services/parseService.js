@@ -10,6 +10,8 @@
     var recipes = Parse.Object.extend('recipe');
     var recipeingredients = Parse.Object.extend('recipeingredient');
 
+
+
     return
     {
         Challenges : challenges

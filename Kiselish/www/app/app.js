@@ -75,27 +75,28 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     .state('home.challenges', {
         url: '/challenges',
+
+        resolve: {
+            challenges: ['$q', 'parseService', function ($q, parseService) {
+                var deferred = $q.defer();
+                var challengesQuery = new Parse.Query(parseService.Challenges);
+                challengesQuery.equalTo("isActive", true);
+                challengesQuery.find({
+                    success: function (object) {
+                        deferred.resolve(object);
+                    },
+                    error: function (object, error) {
+                        alert(error);
+                    }
+                });
+
+                return deferred.promise;
+            }]
+        },
         views: {
             'home-challenges': {
                 templateUrl: 'app/components/challenge/challenges.html',
-                controller: 'challengesController',
-                resolve: {
-                    'challenges': ['$q', 'parseService', function ($q, parseService) {
-                        var deferred = $q.defer();
-                        var challengesQuery = new Parse.Query(parse.Challenges);
-                        challengesQuery.equalTo("isActive", true);
-                        challengesQuery.find({
-                            success: function (object) {
-                                deferred.resolve(object);
-                            },
-                            error: function (object, error) {
-                                alert(error);
-                            }
-                        });
-
-                        return deferred.promise;
-                    }]
-                }
+                controller: 'challengesController'
             }
         }
     })
