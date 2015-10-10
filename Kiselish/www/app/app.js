@@ -209,7 +209,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home/challenges');
+    $urlRouterProvider.otherwise('/home/recipes');
 
 });
 
