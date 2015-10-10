@@ -67,78 +67,93 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     $stateProvider
 
 
-   .state('home', {
-       url: '/home',
-       abstract: true,
-       templateUrl: 'app/components/home/home.html'
-   })
+    .state('home', {
+        url: '/home',
+        abstract: true,
+        templateUrl: 'app/components/home/home.html'
+    })
 
     .state('home.challenges', {
         url: '/challenges',
-    
         resolve: {
             challenges: function (parseService) {
-
                 return parseService.getChallenges();
             }
         },
         views: {
             'home-challenges': {
                 templateUrl: 'app/components/challenge/challenges.html',
-                controller: 'challengesController'
+                controller: 'challengesCtrl'
             }
         }
     })
-        .state('home.challenge', {
-            url: '/challenges/:challengeId',
-            views: {
-                'home-challenges': {
-                    templateUrl: 'app/components/challenge/challenge.html'
-                }
+
+    .state('home.challenge', {
+        url: '/challenges/:challengeId',
+        views: {
+            'home-challenges': {
+                templateUrl: 'app/components/challenge/challenge.html'
             }
-        })
-   .state('home.market', {
-       url: '/produce',
-       views: {
-           'home-market': {
-               templateUrl: 'app/components/market/produce.html'
-           }
-       }
-   })
-   .state('home.market-cart', {
-       url: '/cart',
-       views: {
-           'home-market': {
-               templateUrl: 'app/components/market/cart.html'
-           }
-       }
-   })
-         .state('home.market-previous-orders', {
-             url: '/previous-orders',
-             views: {
-                 'home-market': {
-                     templateUrl: 'app/components/market/previous-orders.html'
-                 }
-             }
-         })
+        }
+    })
 
-   .state('home.recipes', {
-       url: '/recipes',
-       views: {
-           'home-recipes': {
-               templateUrl: 'app/components/recipes/recipes.html'
-           }
-       }
-   })
+    .state('home.market', {
+        url: '/produce',
+        resolve: {
+            produces: function (parseService) {
+                return parseService.getProduces();
+            }
+        },
+        views: {
+            'home-market': {
+                templateUrl: 'app/components/market/produce.html',
+                controller: 'produceCtrl'
+            }
+        }
+    })
 
-   .state('home.recipe', {
-       url: '/recipes/:recipeId',
-       views: {
-           'home-recipes': {
-               templateUrl: 'app/components/recipes/recipe.html'
-           }
-       }
-   })
+    .state('home.market-cart', {
+        url: '/cart',
+        views: {
+            'home-market': {
+                templateUrl: 'app/components/market/cart.html',
+                controller: 'cartCtrl'
+            }
+        }
+    })
+
+    .state('home.market-previous-orders', {
+        url: '/previous-orders',
+        resolve: {
+            previousOrders: function (parseService) {
+                return parseService.getPreviousOrders();
+            }
+        },
+        views: {
+            'home-market': {
+                templateUrl: 'app/components/market/previous-orders.html',
+                controller: 'previousOrdersCtrl'
+            }
+        }
+    })
+
+    .state('home.recipes', {
+        url: '/recipes',
+        views: {
+            'home-recipes': {
+                templateUrl: 'app/components/recipes/recipes.html'
+            }
+        }
+    })
+
+    .state('home.recipe', {
+        url: '/recipes/:recipeId',
+        views: {
+            'home-recipes': {
+                templateUrl: 'app/components/recipes/recipe.html'
+            }
+        }
+    })
     .state('home.news', {
         url: '/news',
         views: {
@@ -148,55 +163,17 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         }
     })
 
-   .state('home.article', {
-       url: '/news/:articleId',
-       views: {
-           'home-news': {
-               templateUrl: 'app/components/news/article.html'
-           }
-       }
-   })
-
-
-
-        .state('tab.dash', {
-            url: '/dash',
-            views: {
-                'tab-dash': {
-                    templateUrl: 'app/components/templates/tab-dash.html',
-                    controller: 'DashCtrl'
-                }
-            }
-        })
-
-  .state('tab.chats', {
-      url: '/chats',
-      views: {
-          'tab-chats': {
-              templateUrl: 'app/components/templates/tab-chats.html',
-              controller: 'ChatsCtrl'
-          }
-      }
-  })
-    .state('tab.chat-detail', {
-        url: '/chats/:chatId',
+    .state('home.article', {
+        url: '/news/:articleId',
         views: {
-            'tab-chats': {
-                templateUrl: 'app/components/templates/chat-detail.html',
-                controller: 'ChatDetailCtrl'
+            'home-news': {
+                templateUrl: 'app/components/news/article.html'
             }
         }
     })
 
-  .state('tab.account', {
-      url: '/account',
-      views: {
-          'tab-account': {
-              templateUrl: 'app/components/templates/tab-account.html',
-              controller: 'AccountCtrl'
-          }
-      }
-  });
+
+;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/home/challenges');

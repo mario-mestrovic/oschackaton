@@ -19,7 +19,7 @@
     <script src="lib/parse/parse-1.6.0.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <!--<script src="cordova.js"></script>-->
 
     <!-- your app's js -->
     <script src="app/lib.js"></script>
@@ -34,12 +34,16 @@
     <!-- shared services -->
     <script src="app/shared/NavigationService.js"></script>
     <script src="app/shared/ProgressService.js"></script>
-    <script src="app/shared/services.js"></script>
     <script src="app/services/parseService.js"></script>
   
-    <!-- state controllers -->
-    <script src="app/components/challenge/challengesController.js"></script>
-    <script src="app/components/controllers.js"></script>
+    <!-- challenge -->
+    <script src="app/components/challenge/challengesCtrl.js"></script>
+
+    <!--market-->
+    <script src="app/components/market/cartCtrl.js"></script>
+    <script src="app/components/market/previousOrdersCtrl.js"></script>
+    <script src="app/components/market/produceCtrl.js"></script>
+
 </head>
 <body ng-app="teglanje">
     <!--

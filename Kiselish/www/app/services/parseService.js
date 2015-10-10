@@ -64,6 +64,38 @@
             .then(deferred.resolve, deferred.reject);
 
         return deferred.promise;
+    };
+
+    this.getProduces = function () {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getProduces' });
+        }
+
+        var deferred = $q.defer();
+
+        deferred.resolve([]);
+
+        return deferred.promise;
+    };
+
+    this.getPreviosOrders = function () {
+
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getPreviosOrders' });
+        }
+
+        var deferred = $q.defer();
+
+        deferred.resolve([]);
+
+        return deferred.promise;
     }
- 
+
 });
