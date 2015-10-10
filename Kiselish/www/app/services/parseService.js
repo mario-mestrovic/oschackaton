@@ -141,7 +141,7 @@
         return deferred.promise;
     };
 
-    this.getChallenges = function (challengeId) {
+    this.getChallenge = function (challengeId) {
 
         function onSuccess(response) {
             return response;
