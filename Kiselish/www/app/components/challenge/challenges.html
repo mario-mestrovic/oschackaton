@@ -7,9 +7,9 @@
         <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; width: 100%; height: auto; background-color: rgb(255, 255, 255);">
             <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
         </div>
-        <h2>Izazov naslov</h2>
-        <div>
-            <p>Opis izazova</p>
+        <h2>{{title}}</h2>
+        <div ng-repeat="item in Challenges">
+            <p>{{item.get("name")}}</p>
         </div>
     </ion-content>
 </ion-view>

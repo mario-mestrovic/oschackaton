@@ -45,7 +45,6 @@
     }
 
 
-
     this.getChallenges = function () {
 
         function onSuccess(response) {
