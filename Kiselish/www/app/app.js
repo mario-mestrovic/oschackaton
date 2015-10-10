@@ -161,10 +161,10 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.recipe', {
         url: '/recipes/:recipeId',
         resolve: {
-            recipe: function (parseServicem, $stateParams) {
+            recipe: function (parseService, $stateParams) {
                 return parseService.getRecipe($stateParams.recipeId);
             },
-            ingredients: function (parseServicem, $stateParams) {
+            ingredients: function (parseService, $stateParams) {
                 return parseService.getRecipeIngredients($stateParams.recipeId);
             }
         },
