@@ -1,6 +1,6 @@
 ﻿<ion-view view-title="Izazovi">
     <ion-content padding="true" class="has-header">
-        <ion-slide-box>
+        <ion-slide-box show-pager="true">
             <ion-slide ng-repeat="item in Challenges" height="600px">
                 <h2>{{item.get("name")}}</h2>
                 <img class="full-image" ng-src="{{item.get('photo').url()}}" />
