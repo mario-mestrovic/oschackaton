@@ -1,7 +1,22 @@
 ﻿<ion-view view-title="Izazov">
     <ion-content padding="true" class="has-header">
-        <img class="article-photo" src={{Challenge.get("photo").url()}}>
-        <h2>{{Challenge.get("name")}}</h2>
-        <p>{{Challenge.get("info")}}</p>
+
+        <div class="text-center">
+
+            <div class="padding"></div>
+            <div class="padding"></div>
+
+            <img class="height-header-photo" ng-src="{{Challenge.get('headerPhoto').url()}}" />
+
+            <div class="padding"></div>
+            <div class="padding"></div>
+
+            <img style="max-height:100px;" class="height-photo" ng-src="{{Challenge.get('photo').url()}}" />
+
+            <div class="padding"></div>
+            <div class="padding"></div>
+
+            <p class="info-text">{{Challenge.get("info")}}</p>
+        </div>
     </ion-content>
 </ion-view>
