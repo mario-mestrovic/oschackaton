@@ -151,3 +151,16 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .text-center {
     text-align:center;
 }
+
+.recipe-title {
+    font-size:23px;
+    font-weight:bold;
+    color:#2B2B2B;
+    padding: 0px 20px;
+    clear:both;
+}
+
+.recipe-thumb {
+    max-height:100px;
+    clear:both;
+}

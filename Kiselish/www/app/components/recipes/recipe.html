@@ -1,11 +1,21 @@
 ﻿<ion-view view-title="Recept">
-    <ion-content padding="true" class="has-header text-center">
-        <span class="recipe-title">{{Recipe.get('name')}}</span>
-        
-        <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb"/>
-        <span>PRIPREMA</span>
-        <span>{{Recipe.get('info')}}</span>
-        <span class="recipe-ingredient" ng-repeat="ingredient in Ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
-        <button class="btn-add-recipe">DODAJ U KOŠARICU</button>
+    <ion-content padding="true" class="has-header">
+        <div class="text-center">
+            <div class="padding"></div>
+            <div class="padding"></div>
+
+            <p class="recipe-title">
+                {{Recipe.get('name')}}
+            </p>
+            <div class="padding"></div>
+            <div class="padding"></div>
+
+            <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb" />
+
+            <p>PRIPREMA</p>
+            <p class="info-text">{{Recipe.get('info')}}</p>
+            <span class="recipe-ingredient" ng-repeat="ingredient in Ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
+            <button class="btn-add-recipe">DODAJ U KOŠARICU</button>
+        </div>
     </ion-content>
 </ion-view>
