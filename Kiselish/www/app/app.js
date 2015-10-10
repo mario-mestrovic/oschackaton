@@ -28,7 +28,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .run(function ($rootScope, $state, $ionicHistory, NavigationService) {
 
         var firstRun = true;
-
+       
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
             //if (!toState.name || toState.name === '' || toState.name.startsWith('home')) {
@@ -62,26 +62,104 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
-  
+
     // setup an abstract state for the tabs directive
     $stateProvider
-    .state('tab', {
-        url: '/tab',
-        abstract: true,
-        templateUrl: 'app/components/templates/tabs.html'
+
+   .state('home', {
+       url: '/home',
+       abstract: true,
+       templateUrl: 'app/components/home/home.html'
+   })
+
+
+    .state('home.challenges', {
+        url: '/challenges',
+        views: {
+            'home-challenges': {
+                templateUrl: 'app/components/challenge/challenges.html'
+            }
+        }
+    })
+        .state('home.challenge', {
+            url: '/challenges/:challengeId',
+            views: {
+                'home-challenges': {
+                    templateUrl: 'app/components/challenge/challenge.html'
+                }
+            }
+        })
+   .state('home.market', {
+       url: '/produce',
+       views: {
+           'home-market': {
+               templateUrl: 'app/components/market/produce.html'
+           }
+       }
+   })
+   .state('home.market-cart', {
+       url: '/cart',
+       views: {
+           'home-market': {
+               templateUrl: 'app/components/market/cart.html'
+           }
+       }
+   })
+         .state('home.market-previous-orders', {
+             url: '/previous-orders',
+             views: {
+                 'home-market': {
+                     templateUrl: 'app/components/market/previous-orders.html'
+                 }
+             }
+         })
+
+   .state('home.recipes', {
+       url: '/recipes',
+       views: {
+           'home-recipes': {
+               templateUrl: 'app/components/recipes/recipes.html'
+           }
+       }
+   })
+
+   .state('home.recipe', {
+       url: '/recipes/:recipeId',
+       views: {
+           'home-recipes': {
+               templateUrl: 'app/components/recipes/recipe.html'
+           }
+       }
+   })
+    .state('home.news', {
+        url: '/news',
+        views: {
+            'home-news': {
+                templateUrl: 'app/components/news/news.html'
+            }
+        }
     })
 
-  // Each tab has its own nav history stack:
+   .state('home.article', {
+       url: '/news/:articleId',
+       views: {
+           'home-news': {
+               templateUrl: 'app/components/news/article.html'
+           }
+       }
+   })
 
-  .state('tab.dash', {
-      url: '/dash',
-      views: {
-          'tab-dash': {
-              templateUrl: 'app/components/templates/tab-dash.html',
-              controller: 'DashCtrl'
-          }
-      }
-  })
+
+
+        .state('tab.dash', {
+       url: '/dash',
+       views: {
+           'tab-dash': {
+               templateUrl: 'app/components/templates/tab-dash.html',
+               controller: 'DashCtrl'
+           }
+       }
+   })
 
   .state('tab.chats', {
       url: '/chats',
@@ -113,7 +191,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
   });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tab/dash');
+    $urlRouterProvider.otherwise('/home/challenges');
 
 });
 
