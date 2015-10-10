@@ -28,7 +28,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .run(function ($rootScope, $state, $ionicHistory, NavigationService) {
 
         var firstRun = true;
-       
+
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
 
             //if (!toState.name || toState.name === '' || toState.name.startsWith('home')) {
@@ -66,6 +66,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     // setup an abstract state for the tabs directive
     $stateProvider
 
+
    .state('home', {
        url: '/home',
        abstract: true,
@@ -77,7 +78,25 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         url: '/challenges',
         views: {
             'home-challenges': {
-                templateUrl: 'app/components/challenge/challenges.html'
+                templateUrl: 'app/components/challenge/challenges.html',
+                controller: challengesController,
+                resolve: {
+                    'challenges': ['$q', 'parseService', function ($q, parseService) {
+                        var deferred = $q.defer();
+                        var challengesQuery = new Parse.Query(parse.Challenges);
+                        challengesQuery.equalTo("isActive", true);
+                        challengesQuery.find({
+                            success: function (object) {
+                                deferred.resolve(object);
+                            },
+                            error: function (object, error) {
+                                alert(error);
+                            }
+                        });
+
+                        return deferred.promise;
+                    }]
+                }
             }
         }
     })
@@ -152,14 +171,14 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
 
         .state('tab.dash', {
-       url: '/dash',
-       views: {
-           'tab-dash': {
-               templateUrl: 'app/components/templates/tab-dash.html',
-               controller: 'DashCtrl'
-           }
-       }
-   })
+            url: '/dash',
+            views: {
+                'tab-dash': {
+                    templateUrl: 'app/components/templates/tab-dash.html',
+                    controller: 'DashCtrl'
+                }
+            }
+        })
 
   .state('tab.chats', {
       url: '/chats',

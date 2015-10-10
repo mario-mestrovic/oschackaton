@@ -534,16 +534,16 @@
     "www\\app\\components\\market\\previous-orders.html",
     "www\\app\\components\\market\\produce.html",
     "www\\app\\components\\news\\news.html",
-    "www\\app\\components\\news\\article.html"
+    "www\\app\\components\\news\\article.html",
+    "www\\app\\components\\challenge\\challengesController.js",
+    "www\\app\\services\\parseService.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [
     "cordova-plugin-whitelist@1.0.0"
   ],
   "deletedPluginsIos": [],
-  "changedFiles": [
-    "www\\app\\components\\home\\home.html"
-  ],
+  "changedFiles": [],
   "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []
