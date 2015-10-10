@@ -2,7 +2,7 @@
 /// <reference path="~/www/lib/parse/parse-1.6.0.js" />
 
 
-angular.module('kiselish')
+angular.module('teglanje')
 
 .service('NavigationService', function ($state, $ionicHistory) {
 

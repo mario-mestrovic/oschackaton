@@ -1,4 +1,4 @@
-angular.module('kiselish')
+angular.module('teglanje')
 
 .controller('DashCtrl', function($scope) {})
 
