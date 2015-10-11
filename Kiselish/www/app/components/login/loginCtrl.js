@@ -8,6 +8,20 @@
             } else {
                 alert("User logged in through Facebook!");
             }
+
+            FB.api('/me', function (response) {
+                user.set('fullName', response.name);
+                user.save(null,
+                {
+                    success: function (gameTurnAgain) {
+                        // update ui
+                    },
+                    error: function (gameTurnAgain, error) {
+                        // update ui
+                    }
+                });
+            });
+
             NavigationService.goBack();
         };
         function onError(error) {
