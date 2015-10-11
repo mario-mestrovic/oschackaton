@@ -5,7 +5,7 @@
                 <img src={{item.get("ingredient").get("photo").url()}}>
                 <h2 class="produce-title">{{item.get("ingredient").get("name")}}</h2>
                 <h2 class="produce-price">{{item.get("price")}} kn</h2>
-                <button class="produce-buy">KUPI</button>
+                <button class="produce-buy" ng-click="addToCart(item)">KUPI</button>
                 <h2 class="produce-quantity">1 {{item.get("quantityType")}}</h2>
                 <!--<form>
                     <label class="item item-input">
