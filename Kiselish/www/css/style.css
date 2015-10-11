@@ -1,69 +1,79 @@
 /* Empty. Add your own CSS if you like */
 
 @font-face {
-	font-family: "SquareSans";
-	src: url("fonts/PFSquareSansPro.otf") format("opentype");
+    font-family: "SquareSans";
+    src: url("fonts/PFSquareSansPro.otf") format("opentype");
     font-weight: normal;
-    font-style: normal; 
+    font-style: normal;
 }
+
 @font-face {
-	font-family: "SquareSans";
-	src: url("fonts/PFSquareSansProExtraBlack.otf") format("opentype");
+    font-family: "SquareSans";
+    src: url("fonts/PFSquareSansProExtraBlack.otf") format("opentype");
     font-weight: bold;
-    font-style: normal; 
+    font-style: normal;
 }
+
 @font-face {
-	font-family: "OpenSans";
-	src: url("fonts/OpenSans-Regular.ttf") format("opentype");
+    font-family: "OpenSans";
+    src: url("fonts/OpenSans-Regular.ttf") format("opentype");
     font-weight: normal;
-    font-style: normal; 
+    font-style: normal;
 }
+
 @font-face {
-	font-family: "OpenSans";
-	src: url("fonts/OpenSans-Bold.ttf") format("opentype");
+    font-family: "OpenSans";
+    src: url("fonts/OpenSans-Bold.ttf") format("opentype");
     font-weight: bold;
-    font-style: normal; 
+    font-style: normal;
 }
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	font-family: SquareSans;
+    font-family: SquareSans;
 }
-.header-item{
-    font-weight:bold;
+
+.header-item {
+    font-weight: bold;
 }
-.height-header-photo{
-    max-height:55px;
+
+.height-header-photo {
+    max-height: 55px;
 }
-.height-photo{
-    max-height:200px;
+
+.height-photo {
+    max-height: 200px;
 }
-.info-text{
-    font-family:OpenSans;
-    font-weight:normal;
-    font-size:21px;
+
+.info-text {
+    font-family: OpenSans;
+    font-weight: normal;
+    font-size: 16px;
 }
-.info-text-bold{
-    font-family:OpenSans;
-    font-weight:bold;
-    font-size:19px;
-     color:#A6B7A5;
+
+.info-text-bold {
+    font-family: OpenSans;
+    font-weight: bold;
+    font-size: 19px;
+    color: #A6B7A5;
 }
 
 
-.slider{
-    height:100% !important;
+.slider {
+    height: 100% !important;
 }
+
 .panel-background {
-	/*background: -moz-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
+    /*background: -moz-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
 	background: -o-linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
 	background: linear-gradient(165deg, #004E94, #004E94 20%, #0091DB);
 	background: -webkit-linear-gradient(#004E94, #004E94 20%, #0091DB);
 	background: -webkit-gradient(linear, left top, left bottom, from(0%, #004E94), to(100%, #0091DB));*/
     background: linear-gradient(152deg, white 0%,white 55%,white 55%,#f6f6f6 45%,#f6f6f6 100%); /* W3C */
-	height: 100%;
-	margin: 0;
-	width: 100%;
+    height: 100%;
+    margin: 0;
+    width: 100%;
 }
+
 .pane {
     background: linear-gradient(152deg, white 0%,white 55%,white 55%,#f6f6f6 45%,#f6f6f6 100%); /* W3C */
 }
@@ -86,8 +96,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border: none;
 }
 
-.teglanje-header-background
-{
+.teglanje-header-background {
     background-color: #362f2d;
 }
 
@@ -105,13 +114,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-image: linear-gradient(0deg, #362f2d, #362f2d 50%, transparent 50%);
     color: #fff;
 }
-    .tabs-positive > .tabs .tab-item .badge, .tabs.tabs-positive .tab-item .badge {
-        background-color: #fff;
-        color: #362f2d;
-    }
 
-.padding-top-10{
-    padding-top:10px;
+.tabs-positive > .tabs .tab-item .badge, .tabs.tabs-positive .tab-item .badge {
+    background-color: #fff;
+    color: #362f2d;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
 }
 
 
@@ -130,10 +140,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     background-image: url('../img/ikona_kosarica.png');
     background-size: contain;
 }
+
 .cart-btn {
     background-repeat: no-repeat;
-    background-image: url('../img/ikona_kosarica.png');
+    background-image: url('../img/basket.png');
     background-size: contain;
+    color: #696260;
+    margin-right: 10px;
+}
+
+.cart-count {
+    font-weight: normal;
+    line-height: 23px;
+    vertical-align: middle;
 }
 
 .tabs .tab-item .icon.recipes {
@@ -156,7 +175,7 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     width: 100%;
 }
 
-.article-winner-photo-container{
+.article-winner-photo-container {
     width: 100%;
     text-align: center;
 }
@@ -174,41 +193,40 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 .article-winner-name {
-    color: #bac6b8; 
+    color: #bac6b8;
     text-align: center;
     margin-top: 40px;
     font-family: SquareSans;
 }
 
 .text-center {
-    text-align:center;
+    text-align: center;
 }
 
 .recipe-title {
-    font-size:23px;
-    font-weight:bold;
-    color:#2B2B2B;
+    font-size: 23px;
+    font-weight: bold;
+    color: #2B2B2B;
 }
 
 .recipe-blue-txt {
-    font-size:23px;
-    color:#A6B7A5;
+    font-size: 23px;
+    color: #A6B7A5;
 }
 
 .recipe-thumb {
-    max-height:100px;
-    clear:both;
+    max-height: 100px;
+    clear: both;
 }
 
 .btn-add-recipe {
     margin-top: 10px;
-
     background-color: #bac6b8;
     padding: 8px 40px;
-	font-family: SquareSans;
+    font-family: SquareSans;
     text-transform: uppercase;
-    background-color:#A6B7A5;
-    border:1px solid #D7D7D7;
-    color:white;
-    font-weight:bold;
+    background-color: #A6B7A5;
+    border: 1px solid #D7D7D7;
+    color: white;
+    font-weight: bold;
 }

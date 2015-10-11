@@ -6,14 +6,27 @@
 
 
                 <div ng-switch on="item.className">
-                    <div ng-switch-when="recipe">
-                        {{item.get('name')}}
+                    <div ng-switch-when="recipe" class="text-center">
+                        <p class="recipe-title">
+                            {{item.get('name')}}
+                            <br />
+                            <hr style="width:50px;" />
+                        </p>
+
+                        <div class="padding"></div>
+
                         <img ng-src="{{item.get('photo').url()}}" class="recipe-thumb" />
-                        <span class="recipe-ingredient info-text-bold" ng-repeat="ingredient in item.ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
+                        <div class="padding"></div>
+                        <span class="recipe-ingredient" ng-repeat="ingredient in item.ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
                     </div>
-                    <div ng-switch-when="ingredientprice">
-                        <img src={{item.get("ingredient").get("photo").url()}}>
-                        <h2 class="produce-title">{{item.get("ingredient").get("name")}}</h2>
+                    <div ng-switch-when="ingredientprice" class="text-center">
+                        <p class="recipe-title">
+                            {{item.get("ingredient").get("name")}}
+                            <br />
+                            <hr style="width:50px;" />
+                        </p>
+                        <img src={{item.get("ingredient").get("photo").url()}} class="recipe-thumb"/>
+                      
                         <h2 class="produce-price">{{item.get("price")}} kn</h2>
                         <h2 class="produce-quantity">1 {{item.get("quantityType")}}</h2>
                     </div>
