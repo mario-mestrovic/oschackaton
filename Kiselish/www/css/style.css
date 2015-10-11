@@ -167,11 +167,22 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-size:23px;
     font-weight:bold;
     color:#2B2B2B;
-    padding: 0px 20px;
-    clear:both;
+}
+
+.recipe-blue-txt {
+    font-size:23px;
+    color:#A6B7A5;
 }
 
 .recipe-thumb {
     max-height:100px;
     clear:both;
+}
+
+.btn-add-recipe {
+    background-color:#A6B7A5;
+    border:1px solid #D7D7D7;
+    padding:10px;
+    color:white;
+    font-weight:bold;
 }

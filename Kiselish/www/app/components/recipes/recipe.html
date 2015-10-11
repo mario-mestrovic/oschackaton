@@ -2,19 +2,22 @@
     <ion-content padding="true" class="has-header">
         <div class="text-center">
             <div class="padding"></div>
-            <div class="padding"></div>
-
             <p class="recipe-title">
                 {{Recipe.get('name')}}
             </p>
-            <div class="padding"></div>
+           
             <div class="padding"></div>
 
             <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb" />
-
-            <p>PRIPREMA</p>
+            <div class="padding"></div>
+            <div class="padding"></div>
+            <p class="recipe-blue-txt">PRIPREMA</p>
+           
+            <div class="padding"></div>
             <p class="info-text">{{Recipe.get('info')}}</p>
-            <span class="recipe-ingredient" ng-repeat="ingredient in Ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
+            <p class="recipe-ingredient recipe-blue-txt" ng-repeat="ingredient in Ingredients" >{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}</p>
+            <div class="padding"></div>
+            <div class="padding"></div>
             <button class="btn-add-recipe">DODAJ U KOŠARICU</button>
         </div>
     </ion-content>
