@@ -1,6 +1,6 @@
-﻿angular.module('teglanje').controller('cartCtrl', function ($scope, ProgressService, NavigationService, cartService) {
+﻿angular.module('teglanje').controller('cartCtrl', function ($scope, previousOrders, ProgressService, NavigationService, cartService) {
     $scope.addedToCart = [];
-    $scope.previousItems = [];
+    $scope.previousOrders = previousOrders || [];
 
     $scope.checkout = function () {
         function onSuccess(response) {
@@ -19,7 +19,6 @@
 
     $scope.refresh = function () {
         $scope.addedToCart = cartService.cartItems || [];
-        $scope.previousItems = cartService.previousCartItems || [];
     };
 
     $scope.refresh();

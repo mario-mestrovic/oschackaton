@@ -55,7 +55,7 @@
     };
     this.checkout = function () {
         function onSuccess(response) {
-            _self.previousCartItems = _self.cartItems;
+            _self.previousCartItems = response;
             _self.cartItems = [];
             _self.syncRootScope();
             return _self.cartItems;
@@ -66,7 +66,8 @@
 
         var deferred = $q.defer();
 
-        $timeout(function () { }, 3000)
+        parseService.checkout(_self.cartItems)
+            .then(parseService.getOrders)
             .then(onSuccess, onError)
             .then(deferred.resolve, deferred.reject);
 

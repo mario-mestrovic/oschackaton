@@ -12,6 +12,7 @@
     var ObjRecipe = Parse.Object.extend('recipe');
     var ObjProduce = Parse.Object.extend('ingredientprice');
     var ObjRecipeingredient = Parse.Object.extend('recipeingredient');
+    var ObjOrder = Parse.Object.extend('order');
 
 
     function logError(error, options) {
@@ -45,6 +46,7 @@
         return error;
     }
 
+    var _self = this;
 
     this.getChallenges = function () {
 
@@ -272,5 +274,90 @@
 
 
     };
+
+    this.checkout = function (items) {
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'checkout' });
+        }
+
+        var deferred = $q.defer();
+
+        var user = Parse.User.current();
+        var order = new ObjOrder();
+        order.set('user', user);
+        order.set('items', items);
+        order.save()
+            .then(_self.getOrders)
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
+    this.getOrders = function () {
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getOrders' });
+        }
+
+        var deferred = $q.defer();
+
+        var user = Parse.User.current();
+
+        var query = new Parse.Query(ObjOrder);
+        query.include('items');
+        query.equalTo("user", user);
+        query.find()
+            .then(function (orders) {
+
+                var pc = Parse.Promise.as();
+
+                orders.forEach(function (order) {
+                    var items = order.get('items');
+
+                    items.forEach(function (item) {
+                        if (item.className == 'ingredientprice') {
+
+                            var ingridientprice = new ObjProduce();
+                            ingridientprice.id = item.id;
+
+                            pc = pc.then(function () {
+                                return ingridientprice.fetch()
+                                    .then(function () {
+                                        order.items = order.items || [];
+                                        order.items.push(ingridientprice);
+                                    });
+                            });
+                        }
+                        else if(item.className == 'recipe') {
+                            var recipe = new ObjRecipe();
+                            recipe.id = item.id;
+
+                            pc = pc.then(function () {
+                                return recipe.fetch()
+                                    .then(function () {
+                                        order.items = order.items || [];
+                                        order.items.push(recipe);
+                                    });
+                            }); 
+                        }
+                    });
+                });
+
+                return pc.then(function () {
+                    return orders;
+                });
+            })
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
 
 });

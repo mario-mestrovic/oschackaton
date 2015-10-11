@@ -1,10 +1,10 @@
 ﻿<ion-view view-title="Kosarica">
     <ion-content padding="true" class="has-header">
-        <button class="button button-stable button-block ">Prošle narudžbe</button>
+        <button ng-if="previousOrders && previousOrders.length" class="button button-stable button-block" ui-sref="home.cartprevious">Prošle narudžbe</button>
+
+        <p ng-if="!addedToCart || !addedToCart.length" class="text-info text-center">Košarica je prazna</p>
         <ion-list>
             <ion-item ng-repeat="item in addedToCart">
-
-
                 <div ng-switch on="item.className">
                     <div ng-switch-when="recipe" class="text-center">
                         <p class="recipe-title">
@@ -25,8 +25,8 @@
                             <br />
                             <hr style="width:50px;" />
                         </p>
-                        <img src={{item.get("ingredient").get("photo").url()}} class="recipe-thumb"/>
-                      
+                        <img src={{item.get("ingredient").get("photo").url()}} class="recipe-thumb" />
+
                         <h2 class="produce-price">{{item.get("price")}} kn</h2>
                         <h2 class="produce-quantity">1 {{item.get("quantityType")}}</h2>
                     </div>
@@ -39,8 +39,11 @@
 
         </ion-list>
         <div>
-            <p>Sljedece zelena tržnica ne kojoj možete pokupiti vašu košaricu je u petak na lokaciji Kralja Tomislava 50 u 7h</p>
+            <p class="text-info text-center">
+                Sljedeća zelena tržnica na kojoj možete pokupiti vašu košaricu je na lokaciji Kralja Tomislava 50. <br />
+                Dođite u petak u 7h
+            </p>
         </div>
-        <button class="button button-stable button-block" ng-click="checkout()">Bit ću tamo</button>
+        <button ng-if="addedToCart && addedToCart.length" class="button button-stable button-block" ng-click="checkout()">Bit ću tamo</button>
     </ion-content>
 </ion-view>

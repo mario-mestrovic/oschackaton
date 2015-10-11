@@ -1,5 +1,7 @@
 ﻿<ion-view view-title="Kupovina">
     <ion-content padding="true" class="has-header ">
+        <button ng-if="previousOrders && previousOrders.length" class="button button-stable button-block" ui-sref="home.cartprevious">Prošle narudžbe</button>
+
         <ion-list ng-repeat="item in produces">
             <ion-item class="item-thumbnail-left">
                 <img src={{item.get("ingredient").get("photo").url()}}>

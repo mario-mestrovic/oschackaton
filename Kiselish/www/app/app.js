@@ -151,6 +151,13 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
                        return null;
                    });
                 return ProgressService.withProgress(promise);
+            },
+            previousOrders: function (ProgressService, parseService) {
+                var promise = parseService.getOrders()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -163,6 +170,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     .state('home.cart', {
         url: '/cart',
+        resolve: {
+            previousOrders: function (ProgressService, parseService) {
+                var promise = parseService.getOrders()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
+            }
+        },
         views: {
             'home-market': {
                 templateUrl: 'app/components/market/cart.html',
@@ -172,6 +188,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     })
     .state('home.cartprevious', {
         url: '/cartprevious',
+        resolve: {
+            previousOrders: function (ProgressService, parseService) {
+                var promise = parseService.getOrders()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
+            }
+        },
         views: {
             'home-market': {
                 templateUrl: 'app/components/market/previous.html',
