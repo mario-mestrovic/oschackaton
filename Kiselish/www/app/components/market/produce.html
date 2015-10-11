@@ -1,9 +1,10 @@
 ﻿<ion-view view-title="Kupovina">
-    <ion-content padding="true" class="has-header ">
+    <ion-content  class="has-header ">
+        <div class="padding-top-10"></div>
         <button ng-if="previousOrders && previousOrders.length" class="button button-stable button-block" ui-sref="home.cartprevious">Prošle narudžbe</button>
 
-        <ion-list ng-repeat="item in produces">
-            <ion-item class="item-thumbnail-left">
+        <div ng-repeat="item in produces" class="card">
+            <div class="item item-text-wrap item-thumbnail-left">
                 <img src={{item.get("ingredient").get("photo").url()}}>
                 <h2 class="produce-title">{{item.get("ingredient").get("name")}}</h2>
                 <h2 class="produce-price">{{item.get("price")}} kn</h2>
@@ -15,8 +16,8 @@
                         <input type="text" placeholder="">
                     </label>
                 </form>-->
-            </ion-item>
+            </>
             <div class="padding-top-10"/>
-        </ion-list>
+        </div>
     </ion-content>
 </ion-view>

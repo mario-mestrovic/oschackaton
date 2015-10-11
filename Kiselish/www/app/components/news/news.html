@@ -1,13 +1,12 @@
 ﻿<ion-view view-title="Novosti">
     <ion-content padding="true" class="has-header">
-        <ion-list>
-            <ion-item ng-repeat="item in News" class="item-thumbnail-left"
-                      ng-click="click(item)">
+        <div class="card" ng-repeat="item in News">
+            <div class="item item-text-wrap item-thumbnail-left"
+                 ng-click="click(item)">
                 <img src={{item.get("photo").url()}}>
                 <h2>{{item.get("title")}}</h2>
                 <p>{{item.get("content")}}</p>
-            </ion-item>
-            <div class="padding-top-10" />
-        </ion-list>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
