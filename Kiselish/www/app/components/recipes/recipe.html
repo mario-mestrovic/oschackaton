@@ -12,7 +12,7 @@
 
             <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb" />
 
-            <p>PRIPREMA</p>
+            <p class="info-text-bold">PRIPREMA</p>
             <p class="info-text">{{Recipe.get('info')}}</p>
             <span class="recipe-ingredient" ng-repeat="ingredient in Ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
             <button class="btn btn-add-recipe">DODAJ U KOŠARICU</button>
