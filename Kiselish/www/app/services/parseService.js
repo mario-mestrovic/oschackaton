@@ -5,7 +5,7 @@
     var ObjChallenge = Parse.Object.extend('challenge');
     var ObjNews = Parse.Object.extend('news');
     var ObjOrder = Parse.Object.extend('order');
-    var ObjChallengeusers = Parse.Object.extend('challengeusers');
+    var ObjChallengeusers = Parse.Object.extend('challengeuser');
     var ObjUser = Parse.Object.extend('User');
     var ObjEvent = Parse.Object.extend('event');
     var ObjOrderitem = Parse.Object.extend('orderitem');
@@ -98,7 +98,7 @@
         var deferred = $q.defer();
 
         var recipesQuery = new Parse.Query(ObjRecipe);
-        
+
         recipesQuery.find()
             .then(onSuccess, onError)
             .then(deferred.resolve, deferred.reject);
@@ -222,6 +222,55 @@
             .then(deferred.resolve, deferred.reject);
 
         return deferred.promise;
+    };
+
+    this.getChallengeUsers = function (challengeId) {
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'getChallengeUsers' });
+        }
+
+        var deferred = $q.defer();
+
+        var challengeUsersQuery = new Parse.Query(ObjChallengeusers);
+        var challenge = new ObjChallenge();
+        challenge.id = challengeId;
+        challengeUsersQuery.equalTo("challenge", challenge);
+        challengeUsersQuery.include("user");
+        challengeUsersQuery.find()
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+    };
+
+    this.IsLogedIn = function () {
+        return !!Parse.User.current();
+    };
+
+    this.applyToChallenge = function (challengeId) {
+        function onSuccess(response) {
+            return response;
+        }
+        function onError(error) {
+            return onApiServiceError(error, { methodName: 'applyToChallenge' });
+        }
+
+        var deferred = $q.defer();
+        var user = Parse.User.current();
+        var challengeUser = new ObjChallengeusers();
+        var challenge = new ObjChallenge();
+        challenge.id = challengeId;
+        challengeUser.user = user;
+        challengeUser.challenge = challenge;
+        challengeUser.save().then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
+
+
     };
 
 });

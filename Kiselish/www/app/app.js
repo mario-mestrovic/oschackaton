@@ -72,7 +72,11 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         abstract: true,
         templateUrl: 'app/components/home/home.html'
     })
-
+    .state('login', {
+        url: '/challenges',
+        templateUrl: 'app/components/login/login.html',
+        controller: 'loginCtrl'
+    })
     .state('home.challenges', {
         url: '/challenges',
         resolve: {
@@ -93,8 +97,11 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         resolve: {
             challenge: function (parseService, $stateParams) {
                 return parseService.getChallenge($stateParams.challengeId);
+            },
+            participants: function (parseService, $stateParams) {
+                return parseService.getChallengeUsers($stateParams.challengeId);
             }
-        }, 
+        },
         views: {
             'home-challenges': {
                 templateUrl: 'app/components/challenge/challenge.html',
@@ -149,11 +156,11 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
             recipes: function (parseService) {
                 return parseService.getRecipes();
             }
-        }, 
+        },
         views: {
             'home-recipes': {
                 templateUrl: 'app/components/recipes/recipes.html',
-                controller:'recipesCtrl'
+                controller: 'recipesCtrl'
             }
         }
     })
@@ -221,7 +228,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     })
 
 
-;
+    ;
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/home/recipes');

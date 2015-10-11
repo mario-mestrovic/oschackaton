@@ -17,6 +17,12 @@
             <div class="padding"></div>
 
             <p class="info-text">{{Challenge.get("info")}}</p>
+
+            <div class="padding"></div>
+            <p class="info-text">Do sada prijavljeni:</p>
+            <span ng-repeat="part in Participants" class="info-text-bold">{{part.get('user').get('username')}} <br /></span>
+            <div class="padding"></div>
+            <button class="btn-add-recipe" ng-click="ApplyToChallenge(Challenge)">SUDJELUJEM</button>
         </div>
     </ion-content>
 </ion-view>
