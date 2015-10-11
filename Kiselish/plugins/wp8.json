@@ -1,0 +1,56 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Console\"><param name=\"wp-package\" value=\"DebugConsole\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"wp-package\" value=\"Device\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SplashScreen\"><param name=\"wp-package\" value=\"SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "Properties/WMAppManifest.xml": {
+                "parents": {
+                    "/Deployment/App/Capabilities": [
+                        {
+                            "xml": "<Capability Name=\"ID_CAP_IDENTITY_DEVICE\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "{8f9413d0-6fdd-11e5-8816-053ee36dc2ac}"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "{8f9413d0-6fdd-11e5-8816-053ee36dc2ac}"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "{8f9413d0-6fdd-11e5-8816-053ee36dc2ac}"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "{8f9413d0-6fdd-11e5-8816-053ee36dc2ac}"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "{8f9413d0-6fdd-11e5-8816-053ee36dc2ac}"
+        }
+    },
+    "dependent_plugins": {}
+}
