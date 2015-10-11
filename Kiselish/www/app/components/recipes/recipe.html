@@ -4,18 +4,22 @@
             <div class="padding"></div>
             <p class="recipe-title">
                 {{Recipe.get('name')}}
+                <br />
+                <br />
+                <hr style="width:50px;" />
             </p>
            
             <div class="padding"></div>
 
             <img ng-src="{{Recipe.get('photo').url()}}" class="recipe-thumb" />
+            
             <div class="padding"></div>
-            <div class="padding"></div>
-            <p class="recipe-blue-txt">PRIPREMA</p>
+            <p class="info-text-bold">PRIPREMA</p>
            
             <div class="padding"></div>
             <p class="info-text">{{Recipe.get('info')}}</p>
-            <p class="recipe-ingredient recipe-blue-txt" ng-repeat="ingredient in Ingredients" >{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}</p>
+            <div class="padding"></div>
+            <span class="recipe-ingredient info-text-bold" ng-repeat="ingredient in Ingredients" >{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
             <div class="padding"></div>
             <div class="padding"></div>
             <button class="btn-add-recipe">DODAJ U KOŠARICU</button>

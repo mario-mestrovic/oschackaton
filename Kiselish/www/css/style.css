@@ -45,7 +45,8 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .info-text-bold{
     font-family:OpenSans;
     font-weight:bold;
-    font-size:21px;
+    font-size:19px;
+     color:#A6B7A5;
 }
 
 
