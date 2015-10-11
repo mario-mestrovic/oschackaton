@@ -175,3 +175,14 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     max-height:100px;
     clear:both;
 }
+
+.btn-add-recipe {
+    margin-top: 10px;
+    color: white;
+    background-color: #bac6b8;
+    padding: 8px 40px;
+    border: none;
+	font-family: PFSquareSansPro;
+    font-weight: 700;
+    text-transform: uppercase;
+}
