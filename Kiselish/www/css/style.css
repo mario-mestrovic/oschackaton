@@ -12,6 +12,18 @@
     font-weight: bold;
     font-style: normal; 
 }
+@font-face {
+	font-family: "OpenSans";
+	src: url("fonts/OpenSans-Regular.ttf") format("opentype");
+    font-weight: normal;
+    font-style: normal; 
+}
+@font-face {
+	font-family: "OpenSans";
+	src: url("fonts/OpenSans-Bold.ttf") format("opentype");
+    font-weight: bold;
+    font-style: normal; 
+}
 
 body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-family: SquareSans;
@@ -23,11 +35,19 @@ body, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     max-height:55px;
 }
 .height-photo{
-    max-height:300px;
+    max-height:200px;
 }
 .info-text{
-    font-size:22px;
+    font-family:OpenSans;
+    font-weight:normal;
+    font-size:21px;
 }
+.info-text-bold{
+    font-family:OpenSans;
+    font-weight:bold;
+    font-size:21px;
+}
+
 
 .slider{
     height:100% !important;
