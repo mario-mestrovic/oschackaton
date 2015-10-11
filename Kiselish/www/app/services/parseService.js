@@ -263,8 +263,8 @@
         var challengeUser = new ObjChallengeusers();
         var challenge = new ObjChallenge();
         challenge.id = challengeId;
-        challengeUser.user = user;
-        challengeUser.challenge = challenge;
+        challengeUser.set('user', Parse.User.current());
+        challengeUser.set('challenge', challenge);
         challengeUser.save().then(onSuccess, onError)
             .then(deferred.resolve, deferred.reject);
 

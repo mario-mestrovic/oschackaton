@@ -19,10 +19,11 @@
             <p class="info-text">{{Challenge.get("info")}}</p>
 
             <div class="padding"></div>
-            <p class="info-text">Do sada prijavljeni:</p>
-            <span ng-repeat="part in Participants" class="info-text-bold">{{part.get('user').get('username')}} <br /></span>
+            <p class="info-text" ng-hide="IsClosed">Do sada prijavljeni:</p>
+            <p class="info-text" ng-show="IsClosed">Trenutni rezultati:</p>
+            <span ng-repeat="part in Participants" class="info-text-bold">{{part.get('user').get('fullName')}}<i ng-show="IsClosed"> - {{part.get('grade')}}</i><br /></span>
             <div class="padding"></div>
-            <button class="btn-add-recipe" ng-click="ApplyToChallenge(Challenge)">SUDJELUJEM</button>
+            <button class="btn-add-recipe" ng-click="ApplyToChallenge(Challenge)" ng-hide="IsClosed">SUDJELUJEM</button>
         </div>
     </ion-content>
 </ion-view>
