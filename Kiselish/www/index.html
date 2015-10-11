@@ -65,7 +65,9 @@
         <ion-nav-back-button>
         </ion-nav-back-button>
         <ion-nav-buttons side="right">
-            <button ng-if="cartItems && cartItems.length" class="button button-stable button-icon icon ion-ios-cart-outline">
+            <button ng-if="cartItems && cartItems.length" 
+                    ui-sref="home.cart"
+                    class="button button-stable button-icon icon ion-ios-cart-outline">
                 {{ cartItems.length }}
             </button>
         </ion-nav-buttons>

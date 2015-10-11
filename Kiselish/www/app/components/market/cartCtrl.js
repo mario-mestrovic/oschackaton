@@ -1,3 +1,6 @@
-﻿angular.module('teglanje').controller('cartCtrl', function ($scope) {
+﻿angular.module('teglanje').controller('cartCtrl', function ($scope, cartService) {
+    $scope.addedToCart = cartService.cartItems || [];
+
+
 });
 

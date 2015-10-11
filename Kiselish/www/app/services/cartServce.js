@@ -1,6 +1,6 @@
 ﻿angular.module('teglanje')
 
-.service('cartService', function (parseService) {
+.service('cartService', function ($rootScope, parseService) {
 
     function logError(error, options) {
 
@@ -34,52 +34,28 @@
     }
 
     var _self = this;
-
     this.cartItems = [];
 
-    this.getCartItems = function () {
-        function onSuccess(response) {
-            return cartItems = response;
-        }
-        function onError(error) {
-            alert(JSON.stringify(error));
+    this.addToCart = function (item) {
+        
+        var exists = false;
+        for (var i = 0; i < _self.cartItems.length; i++) {
+            var existing = _self.cartItems[i];
+            if (existing.id && item.id && existing.id == item.id) {
+                exists = true;
+                continue;
+            }
         }
 
-        var promise = parseService.getCartItems(produce)
-                        .then(onSuccess, onError);
-
-        return promise;
+        if (!exists) {
+            _self.cartItems.push(item);
+            _self.syncRootScope();
+        }
     };
 
-    this.refresh = function () {
-        function onSuccess(response) {
-            return cartItems = response;
-        }
-        function onError(error) {
-            alert(JSON.stringify(error));
-        }
-
-        var promise = parseService.getCartItems(produce)
-                        .then(onSuccess, onError);
-
-        return promise;
+    this.syncRootScope = function () {
+        $rootScope.cartItems = _self.cartItems;
     };
 
-    this.addToCart = function (produce) {
-
-        //function onSuccess(response) {
-        //    return response;
-        //}
-        //function onError(error) {
-        //    alert(JSON.stringify(error));
-        //}
-
-        //var promise = parseService.addToCart(produce)
-        //     .then(_self.getCartItems)
-        //     .then(onSuccess, onError);
-
-        //return promise;
-
-        _self.cartItems.push(produce);
-    };
+    _self.syncRootScope();
 });

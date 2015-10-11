@@ -142,7 +142,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         }
     })
 
-    .state('home.market', {
+    .state('home.produce', {
         url: '/produce',
         resolve: {
             produces: function (ProgressService, parseService) {
@@ -161,7 +161,7 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
         }
     })
 
-    .state('home.market-cart', {
+    .state('home.cart', {
         url: '/cart',
         views: {
             'home-market': {
