@@ -35,7 +35,6 @@
 
     var _self = this;
     this.cartItems = [];
-    this.previousCartItems = [];
 
     this.addToCart = function (item) {
 
@@ -55,7 +54,6 @@
     };
     this.checkout = function () {
         function onSuccess(response) {
-            _self.previousCartItems = response;
             _self.cartItems = [];
             _self.syncRootScope();
             return _self.cartItems;

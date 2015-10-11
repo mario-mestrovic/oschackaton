@@ -1,10 +1,12 @@
 ﻿<ion-view view-title="Recepti">
-    <ion-content padding="true" class="has-header">
-        <ion-list>
-            <ion-item class="item-thumbnail-left" ng-repeat="recipe in Recipes" ui-sref="home.recipe({recipeId: recipe.id})">
-                <img src={{recipe.get("photo").url()}}>
-                <h2>{{recipe.get("name")}}</h2>
-            </ion-item>
-        </ion-list>
+    <ion-content class="has-header" >
+        <div>
+            <div class="card" ng-repeat="recipe in Recipes" ui-sref="home.recipe({recipeId: recipe.id})">
+                <div class="item item-text-wrap item-thumbnail-left">
+                    <img src={{recipe.get("photo").url()}}>
+                    <h2>{{recipe.get("name")}}</h2>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>
