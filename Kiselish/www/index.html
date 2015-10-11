@@ -67,10 +67,10 @@
         <ion-nav-back-button>
         </ion-nav-back-button>
         <ion-nav-buttons side="right">
-            <button ng-if="cartItems && cartItems.length" 
+            <span ng-show="cartItems && cartItems.length" class="cart-count">{{cartItems.length }}</span> <button ng-if="cartItems && cartItems.length" 
                     ui-sref="home.cart"
-                    class="button button-stable button-icon icon ion-ios-cart-outline">
-                {{ cartItems.length }}
+                    class="button  button-icon icon cart-btn">
+               
             </button>
         </ion-nav-buttons>
     </ion-nav-bar>
