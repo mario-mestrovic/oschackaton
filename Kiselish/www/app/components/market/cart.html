@@ -2,9 +2,28 @@
     <ion-content padding="true" class="has-header">
         <button class="button button-stable button-block ">Prošle narudžbe</button>
         <ion-list>
-            <ion-item>Krumpir - 3kg</ion-item>
-            <ion-item>Paprika - 10kg</ion-item>
-            <ion-item>Krastavac - 2 kg</ion-item>
+            <ion-item ng-repeat="item in addedToCart">
+
+
+                <div ng-switch on="item.className">
+                    <div ng-switch-when="recipe">
+                        {{item.get('name')}}
+                        <img ng-src="{{item.get('photo').url()}}" class="recipe-thumb" />
+                        <span class="recipe-ingredient info-text-bold" ng-repeat="ingredient in item.ingredients">{{ingredient.get('quantity')}} {{ingredient.get('quantityvalue')}} {{ingredient.get('ingredient').get('name')}}<br /></span>
+                    </div>
+                    <div ng-switch-when="ingredientprice">
+                        <img src={{item.get("ingredient").get("photo").url()}}>
+                        <h2 class="produce-title">{{item.get("ingredient").get("name")}}</h2>
+                        <h2 class="produce-price">{{item.get("price")}} kn</h2>
+                        <h2 class="produce-quantity">1 {{item.get("quantityType")}}</h2>
+                    </div>
+                    <div ng-switch-default>
+                        dunno
+                    </div>
+                </div>
+            </ion-item>
+            <div class="padding-top-10"></div>
+
         </ion-list>
         <div>
             <p>Sljedece zelena tržnica ne kojoj možete pokupiti vašu košaricu je u petak na lokaciji Kralja Tomislava 50 u 7h</p>
