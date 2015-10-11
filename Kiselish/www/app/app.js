@@ -58,6 +58,26 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
 
     Parse.initialize(parseConfig.applicationId, parseConfig.javaScriptKey, parseConfig.masterKey);
 
+    window.fbAsyncInit = function () {
+        Parse.FacebookUtils.init({ // this line replaces FB.init({
+            appId: '443681552494797', // Facebook App ID
+            status: true,  // check Facebook Login status
+            cookie: true,  // enable cookies to allow Parse to access the session
+            xfbml: true,  // initialize Facebook social plugins on the page
+            version: 'v2.5' // point to the latest Facebook Graph API version
+        });
+
+        // Run code after the Facebook SDK is loaded.
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
     // Ionic uses AngularUI Router which uses the concept of states
     // Learn more here: https://github.com/angular-ui/ui-router
     // Set up the various states which the app can be in.
@@ -80,8 +100,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.challenges', {
         url: '/challenges',
         resolve: {
-            challenges: function (parseService) {
-                return parseService.getChallenges();
+            challenges: function (ProgressService, parseService) {
+                var promise = parseService.getChallenges()
+                      .catch(function (error) {
+                          return null;
+                      });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -95,11 +119,19 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.challenge', {
         url: '/challenges/:challengeId',
         resolve: {
-            challenge: function (parseService, $stateParams) {
-                return parseService.getChallenge($stateParams.challengeId);
+            challenge: function (ProgressService, parseService, $stateParams) {
+                var promise = parseService.getChallenge($stateParams.challengeId)
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
             },
-            participants: function (parseService, $stateParams) {
-                return parseService.getChallengeUsers($stateParams.challengeId);
+            participants: function (ProgressService, parseService, $stateParams) {
+                var promise = parseService.getChallengeUsers($stateParams.challengeId)
+                      .catch(function (error) {
+                          return null;
+                      });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -113,8 +145,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.market', {
         url: '/produce',
         resolve: {
-            produces: function (parseService) {
-                return parseService.getProduces();
+            produces: function (ProgressService, parseService) {
+                var promise = parseService.getProduces()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -138,8 +174,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.market-previous-orders', {
         url: '/previous-orders',
         resolve: {
-            previousOrders: function (parseService) {
-                return parseService.getPreviousOrders();
+            previousOrders: function (ProgressService, parseService) {
+                var promise = parseService.getPreviousOrders()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -153,8 +193,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.recipes', {
         url: '/recipes',
         resolve: {
-            recipes: function (parseService) {
-                return parseService.getRecipes();
+            recipes: function (ProgressService, parseService) {
+                var promise = parseService.getRecipes()
+                     .catch(function (error) {
+                         return null;
+                     });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -168,11 +212,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.recipe', {
         url: '/recipes/:recipeId',
         resolve: {
-            recipe: function (parseService, $stateParams) {
-                return parseService.getRecipe($stateParams.recipeId);
+            recipe: function (ProgressService, parseService, $stateParams) {
+                return ProgressService.withProgress(parseService.getRecipe($stateParams.recipeId));
             },
-            ingredients: function (parseService, $stateParams) {
-                return parseService.getRecipeIngredients($stateParams.recipeId);
+            ingredients: function (ProgressService, parseService, $stateParams) {
+                var promise = parseService.getRecipeIngredients($stateParams.recipeId)
+                     .catch(function (error) {
+                         return null;
+                     });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -185,8 +233,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.news', {
         url: '/news',
         resolve: {
-            news: function (parseService) {
-                return parseService.getNews();
+            news: function (ProgressService, parseService) {
+                var promise = parseService.getNews()
+                   .catch(function (error) {
+                       return null;
+                   });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -200,8 +252,12 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.article', {
         url: '/article/:articleId',
         resolve: {
-            article: function (parseService, $stateParams) {
-                return parseService.getArticle($stateParams.articleId);
+            article: function (ProgressService, parseService, $stateParams) {
+                var promise = parseService.getArticle($stateParams.articleId)
+                    .catch(function (error) {
+                        return null;
+                    });
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
@@ -215,8 +271,13 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
     .state('home.articleWinner', {
         url: '/articleWinner/:articleId',
         resolve: {
-            article: function (parseService, $stateParams) {
-                return parseService.getArticle($stateParams.articleId);
+            article: function (ProgressService, parseService, $stateParams) {
+                var promise = parseService.getArticle($stateParams.articleId)
+                        .catch(function (error) {
+                            return null;
+                        });
+
+                return ProgressService.withProgress(promise);
             }
         },
         views: {
