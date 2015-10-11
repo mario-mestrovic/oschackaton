@@ -1,6 +1,6 @@
 ﻿angular.module('teglanje')
 
-.service('cartService', function ($rootScope, parseService) {
+.service('cartService', function ($q, $timeout, $rootScope, parseService) {
 
     function logError(error, options) {
 
@@ -35,9 +35,10 @@
 
     var _self = this;
     this.cartItems = [];
+    this.previousCartItems = [];
 
     this.addToCart = function (item) {
-        
+
         var exists = false;
         for (var i = 0; i < _self.cartItems.length; i++) {
             var existing = _self.cartItems[i];
@@ -51,6 +52,25 @@
             _self.cartItems.push(item);
             _self.syncRootScope();
         }
+    };
+    this.checkout = function () {
+        function onSuccess(response) {
+            _self.previousCartItems = _self.cartItems;
+            _self.cartItems = [];
+            _self.syncRootScope();
+            return _self.cartItems;
+        }
+        function onError(error) {
+        }
+
+
+        var deferred = $q.defer();
+
+        $timeout(function () { }, 3000)
+            .then(onSuccess, onError)
+            .then(deferred.resolve, deferred.reject);
+
+        return deferred.promise;
     };
 
     this.syncRootScope = function () {

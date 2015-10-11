@@ -1,10 +1,7 @@
-﻿<ion-view view-title="Kosarica">
+﻿<ion-view view-title="Prošle narudžbe">
     <ion-content padding="true" class="has-header">
-        <button class="button button-stable button-block ">Prošle narudžbe</button>
         <ion-list>
-            <ion-item ng-repeat="item in addedToCart">
-
-
+            <ion-item ng-repeat="item in previousItems">
                 <div ng-switch on="item.className">
                     <div ng-switch-when="recipe">
                         {{item.get('name')}}
@@ -23,11 +20,6 @@
                 </div>
             </ion-item>
             <div class="padding-top-10"></div>
-
         </ion-list>
-        <div>
-            <p>Sljedece zelena tržnica ne kojoj možete pokupiti vašu košaricu je u petak na lokaciji Kralja Tomislava 50 u 7h</p>
-        </div>
-        <button class="button button-stable button-block" ng-click="checkout()">Bit ću tamo</button>
     </ion-content>
 </ion-view>

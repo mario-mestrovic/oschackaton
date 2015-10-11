@@ -170,6 +170,15 @@ angular.module('teglanje', ['ionic', 'ngCordova'])
             }
         }
     })
+    .state('home.cartprevious', {
+        url: '/cartprevious',
+        views: {
+            'home-market': {
+                templateUrl: 'app/components/market/previous.html',
+                controller: 'previousCtrl'
+            }
+        }
+    })
 
     .state('home.market-previous-orders', {
         url: '/previous-orders',
